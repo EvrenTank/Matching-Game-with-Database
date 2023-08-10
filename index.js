@@ -30,6 +30,8 @@ else{
   res.redirect('/recordspage')
 
 }*/
+    name=req.body.name
+    console.log(name)  
 res.redirect('/gamepage')
 })
 app.get('/gamepage',function(req,res){
