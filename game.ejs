@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <style media="screen">
+      body{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: auto;
+        margin: auto;
+        flex-direction: column;
+
+      }
+
+
+      section{
+        margin: auto;
+        padding: auto;
+        width: 400px;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+      }
+      #tamamlandı{
+        width:100vw;
+        height: 65vh;
+        font-size:140px;
+        text-shadow: 15px 15px 20px black;
+        text-align: center;
+        padding-top: 280px;
+        background-color: gray;
+        display: none;
+
+      }
+
+
+      .division{
+        font-size: 10px;
+        box-sizing: border-box;
+        border: 1px solid black;
+        width: 100px;
+        height: 100px;
+        background-color: gray;
+        color:white;
+        text-align: center;
+        background-repeat: no-repeat;
+
+         }
+      .division.active{
+        background-image: url("cherry.png");
+        background-repeat: no-repeat;
+      }
+
+    </style>
+    <meta charset="utf-8">
+    <title> Eşleştirme Oyunu</title>
+    <link rel="stylesheet" href="matching_game.css">
+  </head>
+  <body onclick="theFunction(event)" onload="shufflearray()" >
+    <div id="not" style="padding:50px 280px;color:red;font-size:1.2em;text-align:justify;border:3px solid black;width:600px" >Burada denemeleri yaparken background-image özelliğini css dosyası içinde tanımladığımda
+    ve daha sonra bu değeri document.getElementById("id").style.backgroundImage ile almaya çalıştığımda değer
+    okunmadı. Ama background-image'i div'in içinde style özelliği ile belirttiğimde bu okundu. Ayrıca script içinde
+    document.getElementById("id").style.backgroundImage="url()" şeklinde yapınca da oldu. Bunun nedeni belki
+    css dosyasının external bir dosya olmasından kaynaklıdır. Belki de head kısmındaki style ile tanımlandığımda
+    bu özelliklerin okunmasında sorun çıkıyordur. Tam olarak bilemedim. </div>
+
+    <section id="section1">
+    <div class="division" id="d0" ></div>
+    <div class="division" id="d1" ></div>
+    <div class="division" id="d2" ></div>
+    <div class="division" id="d3" ></div>
+    <div class="division" id="d4" ></div>
+    <div class="division" id="d5" ></div>
+    <div class="division" id="d6" ></div>
+    <div class="division" id="d7" ></div>
+    <div class="division" id="d8" ></div>
+    <div class="division" id="d9" ></div>
+    <div class="division" id="d10" ></div>
+    <div class="division" id="d11" ></div>
+    <div class="division" id="d12" ></div>
+    <div class="division" id="d13" ></div>
+    <div class="division" id="d14" ></div>
+    <div class="division" id="d15" ></div>
+  </section>
+
+  <section id="tamamlandı"> Oyun Tamamlandı!
+  </section>
+
+
+
+
+
+
+<script type="text/javascript">
+
+function deneme(){
+  var div=document.getElementsByClassName("division")
+  div.forEach((divisions, i) => {
+    divisions.addEventListener("click",function() {
+      divisions.classList.toggle("active")
+    })
+
+  });
+
+
+
+}
+
+var imgArray=new Array();
+imgArray[0]=new Image();
+imgArray[0].src="matching game görseller/peach.png"
+imgArray[1]=new Image();
+imgArray[1].src="matching game görseller/cherry.png"
+imgArray[2]=new Image();
+imgArray[2].src="matching game görseller/apple.png"
+imgArray[3]=new Image();
+imgArray[3].src="matching game görseller/papaya.png"
+imgArray[4]=new Image();
+imgArray[4].src="matching game görseller/banana.png"
+imgArray[5]=new Image();
+imgArray[5].src="matching game görseller/grape.png"
+imgArray[6]=new Image();
+imgArray[6].src="matching game görseller/orange.png"
+imgArray[7]=new Image();
+imgArray[7].src="matching game görseller/avocado.png"
+imgArray[8]=new Image();
+imgArray[8].src="matching game görseller/peach.png"
+imgArray[9]=new Image();
+imgArray[9].src="matching game görseller/cherry.png"
+imgArray[10]=new Image();
+imgArray[10].src="matching game görseller/apple.png"
+imgArray[11]=new Image();
+imgArray[11].src="matching game görseller/papaya.png"
+imgArray[12]=new Image();
+imgArray[12].src="matching game görseller/banana.png"
+imgArray[13]=new Image();
+imgArray[13].src="matching game görseller/grape.png"
+imgArray[14]=new Image();
+imgArray[14].src="matching game görseller/orange.png"
+imgArray[15]=new Image();
+imgArray[15].src="matching game görseller/avocado.png"
+
+
+
+function reload_page(){
+  location.reload();
+}
+
+function shufflearray(){
+
+for (var i = imgArray.length - 1; i > 0; i--) {
+       var j = Math.floor(Math.random() * (i + 1));
+       var temp = imgArray[i];
+       imgArray[i] = imgArray[j];
+       imgArray[j] = temp;
+   }
+}
+
+
+var div1="empty";
+var div2="empty";
+var img_src1="empty";
+var img_src2="empty";
+var eslesme_Sayisi=0;
+function theFunction(event)
+{
+  var id=event.target.id;
+  //alert(imgArray[1].src.split("/"));
+  //document.getElementById("d17").style.backgroundImage="url("+imgArray[1].src.split("/")[3]+")";
+  //var img=element.style.backgroundImage;
+  //element.innerHTML=element;
+  //alert(document.getElementById("d17").style.backgroundImage);
+  //alert(imgArray[1].src.split("/")[3]);
+  //alert(2**5);
+  //document.getElementById(id).style.backgroundImage="url("+imgArray[i].src.split("/")[3]+")";
+  console.log(id);
+  var index=id.split("d")[id.split("d").length-1];
+  var selected_div=id;
+
+  document.getElementById(id).style.backgroundImage="url("+imgArray[index].src.split("/")[3]+")";
+
+  var image=imgArray[index].src;
+  if (img_src1==="empty" && img_src2==="empty"){
+    div1=selected_div;
+    img_src1=image;
+  }
+   else if (img_src1 != "empty" && img_src2=="empty" && selected_div!=div1 ){
+    img_src2=image;
+    div2=selected_div;
+  }
+  else if(img_src1  != "empty" && img_src2!="empty" && div1!=div2){
+    if(img_src1==img_src2 && selected_div != div2 && selected_div != div1){
+      document.getElementById(div1).style.pointerEvents="none";
+      document.getElementById(div2).style.pointerEvents="none";
+      document.getElementById(div1).style.backgroundColor="white";
+      document.getElementById(div2).style.backgroundColor="white";
+      div2="empty";
+      img_src2="empty";
+      div1=selected_div;
+      img_src1=image;
+      eslesme_Sayisi++;
+      console.log("eslesme_Sayisi="+eslesme_Sayisi);
+      if(eslesme_Sayisi==7){
+        for(var i=0;i<16;i++){
+          document.getElementById("d"+i).style.backgroundColor="white";
+          document.getElementById("d"+i).style.backgroundImage="url("+imgArray[i].src.split("/")[3]+")";
+        }
+        document.getElementById("not").style.display="none";
+        document.getElementById("section1").style.display="none";
+        document.getElementById("tamamlandı").style.display="block";
+        //setTimeout(function(){location.reload();},5000 ) Bu da çalışıyor.
+        setTimeout(reload_page,5000);
+      }
+
+
+    }
+      else if(img_src1 !=img_src2 && selected_div != div2 && selected_div != div1){
+        document.getElementById(div1).style.backgroundImage="";
+        document.getElementById(div2).style.backgroundImage="";
+        div2="empty";
+        img_src2="empty";
+        div1=selected_div;
+        img_src1=image;
+
+
+    }
+
+  }
+
+  console.log("img_src1="+img_src1+"  img_src2="+img_src2+" div1="+div1+" div2="+div2+" selected_div="+selected_div+" "+ (selected_div===div2) );
+
+}
+
+</script>
+
+  </body>
+</html>

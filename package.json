@@ -1,0 +1,29 @@
+{
+  "name": "matching-game-with-database",
+  "version": "1.0.0",
+  "description": "Matching Game Oyunu ve Skorlarinin Kayit Edilmesi",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon index.js"
+  },
+  "engines": {
+    "node": "18.16.0",
+    "npm": "9.7.1"
+  },
+  "keywords": [
+    "matching",
+    "game",
+    "nodejs"
+  ],
+  "author": "Evren TANIK",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.17.1",
+    "mysql2": "^2.3.3",
+    "serve": "^14.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

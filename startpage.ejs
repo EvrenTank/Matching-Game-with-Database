@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+ 
+<form action="/" id="f1"  method="post">
+    <input type="text" name="name" placeholder="İsminizi giriniz:" required>
+    <input type="text" name="clickedButton" id="clickedButton" style="display:none">
+    <br><br><button type="submit" name="startButton" id="startButton" >Oyuna Başla</button>
+    <!-- <br><br><button type="submit" name="recordsButton" id="recordsButton">Kayitlari Gör</button> -->
+    </form>  
+ <script>
+    
+    var startButton = document.getElementById("startButton");
+    //var recordsButton = document.getElementById("recordsButton");
+    var clickedButton = document.getElementById("clickedButton");
+
+ const clickEvent = (isim) =>{
+
+        clickedButton.value = isim; 
+ }
+  startButton.addEventListener("click", ()=>{
+    clickEvent("startButton");
+  }	);
+  /*recordsButton.addEventListener("click", ()=>{
+    clickEvent("recordsButton");
+  }	);*/
+ ;
+ 
+
+ </script>   
+    
+</body>
+</html>
+
